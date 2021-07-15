@@ -1969,6 +1969,11 @@
   dependencies:
     "@types/jest" "*"
 
+"@types/three@^0.130.0":
+  version "0.130.0"
+  resolved "https://registry.nlark.com/@types/three/download/@types/three-0.130.0.tgz#f048f1fb73e789a2c0dfcc66a45ffcbf259a75f6"
+  integrity sha1-8Ejx+3PniaLA38xmpF/8vyWadfY=
+
 "@types/uglify-js@*":
   version "3.13.1"
   resolved "https://registry.nlark.com/@types/uglify-js/download/@types/uglify-js-3.13.1.tgz#5e889e9e81e94245c75b6450600e1c5ea2878aea"
@@ -11019,6 +11024,11 @@ text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.nlark.com/text-table/download/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+
+three@^0.130.1:
+  version "0.130.1"
+  resolved "https://registry.nlark.com/three/download/three-0.130.1.tgz#797588b2877ace31603bbbc864eb2e3022f0b3b4"
+  integrity sha1-eXWIsod6zjFgO7vIZOsuMCLws7Q=
 
 throat@^5.0.0:
   version "5.0.0"
