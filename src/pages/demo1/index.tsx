@@ -2,8 +2,11 @@ import React from "react";
 import { Color } from 'three'
 import { initShaders } from '../../utils/shader'
 import './index.css'
+interface customWebGLRenderingContext extends WebGLRenderingContext {
+  program: WebGLProgram
+}
 interface initState {
-  gl: any
+  gl: customWebGLRenderingContext
   color: any
   canvas: any
   vertsxShader: string
