@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HtmlHTMLAttributes } from "react";
 import { Color } from 'three'
 import { initShaders } from '../../utils/shader'
 import './index.css'
@@ -7,8 +7,8 @@ interface customWebGLRenderingContext extends WebGLRenderingContext {
 }
 interface initState {
   gl: customWebGLRenderingContext
-  color: any
-  canvas: any
+  color: THREE.Color
+  canvas: HTMLCanvasElement
   vertsxShader: string
   fragmentShader: string
 }
@@ -19,23 +19,27 @@ class Demo1 extends React.Component {
     canvas: null,
     vertsxShader: `
      attribute vec4 a_position;
+     attribute float a_pointSize;
      void main() {
        gl_Position = a_position;
-       gl_PointSize = 10.0;
+       gl_PointSize = a_pointSize;
      }
     `, // 顶点着色器
     fragmentShader: `
+      precision mediump float;
+      uniform vec4 u_FragColor;
       void main() {
-        gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
+        gl_FragColor = u_FragColor;
       }
     ` // 片元着色器
+    // 要提前设置精度
   }
   initWebGl = (cb?: Function[]) => {
     const canvas: any = document.getElementById('canvas')
     canvas.width = 1000
     canvas.height = 1000
     const gl = canvas.getContext('webgl')
-    const color = new Color("rgba(255, 0, 0, 1)")
+    const color = new Color("burlywood")
     const { r, g, b } = color
     gl.clearColor(r, g, b, 1)
     gl.clear(gl.COLOR_BUFFER_BIT)
@@ -68,7 +72,6 @@ class Demo1 extends React.Component {
   initCanvasClick = () => {
     const { canvas, gl } = this.state
     canvas.addEventListener('click', ({ clientX, clientY }: { clientX: number, clientY: number }) => {
-      console.log(clientX, clientY)
       const { top, left, height, width } = canvas.getBoundingClientRect()
       // 计算鼠标与canvas画布点相对位置
       const [rX, rY] = [clientX - left, clientY - top]
@@ -79,8 +82,16 @@ class Demo1 extends React.Component {
       const [gX, gY] = [(rX - glCenterX)/glCenterX, -(rY - glCenterY)/glCenterY]
       // 获取顶点着色器位置信息
       const a_position = gl.getAttribLocation(gl.program, 'a_position')
+      // 获取顶点着色器大小信息
+      const a_pointSize = gl.getAttribLocation(gl.program, 'a_pointSize')
+      // 获取uniform 变量
+      const u_FragColor = gl.getUniformLocation(gl.program, 'u_FragColor')
       // 设置顶点着色器位置信息
       gl.vertexAttrib2f(a_position, gX, gY)
+      // 设置顶点着色器的大小
+      gl.vertexAttrib1f(a_pointSize, Math.random() * 50)
+      // 设置uniform 变量
+      gl.uniform4f(u_FragColor, Math.random(), Math.random(), 1, 1)
       gl.drawArrays(gl.POINTS, 0, 1)
     })
   }
