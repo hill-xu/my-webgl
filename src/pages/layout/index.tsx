@@ -20,7 +20,10 @@ class MyLayout extends React.Component {
         <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
-              <Link to="/demo1">刷底色</Link>
+              <Link to="/demo1">点击画原点</Link>
+            </Menu.Item>
+            <Menu.Item key="2">
+              <Link to="/demo2">画星星</Link>
             </Menu.Item>
           </Menu>
         </Sider>
