@@ -23,7 +23,7 @@ class MyLayout extends React.Component {
               <Link to="/demo1">点击画原点</Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to="/demo2">画星星</Link>
+              <Link to="/demo2">星星向你眨眼睛</Link>
             </Menu.Item>
           </Menu>
         </Sider>

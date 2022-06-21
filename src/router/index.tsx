@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 import MyLayout from '../pages/layout/index'
 import Demo1 from '../pages/demo1/index'
@@ -15,6 +16,7 @@ function routerConfig() {
           <Switch>
             <Route path="/demo1" component={Demo1}></Route>
             <Route path="/demo2" component={Demo2}></Route>
+            <Redirect to="/demo1"></Redirect>
           </Switch>
         </MyLayout>
       </Route>
