@@ -5,9 +5,10 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import MyLayout from '../pages/layout/index'
-import Demo1 from '../pages/demo1/index'
-import Demo2 from '../pages/demo2/index';
+import MyLayout from '../pages/layout'
+import Demo1 from '../pages/demo1'
+import Demo2 from '../pages/demo2';
+import Demo3 from '../pages/demo3'
 function routerConfig() {
   return <Router>
     <Switch>
@@ -16,6 +17,7 @@ function routerConfig() {
           <Switch>
             <Route path="/demo1" component={Demo1}></Route>
             <Route path="/demo2" component={Demo2}></Route>
+            <Route path="/demo3" component={Demo3}></Route>
             <Redirect to="/demo1"></Redirect>
           </Switch>
         </MyLayout>
