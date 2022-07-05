@@ -85,11 +85,11 @@ class Demo3 extends React.Component {
 
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    // gl.drawArrays(gl.POINTS, 0, 4) // 绘制点
+    gl.drawArrays(gl.POINTS, 0, 3) // 绘制点
     // gl.drawArrays(gl.LINES, 0, 4); // 两两绘制线
-    // gl.drawArrays(gl.LINE_STRIP, 0, 4); // 两两绘制连续的线
-    // gl.drawArrays(gl.LINE_LOOP, 0, 4); // 绘制封闭的线
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 3)
+    // gl.drawArrays(gl.LINE_STRIP, 0, 3); // 两两绘制连续的线
+    gl.drawArrays(gl.LINE_LOOP, 0, 3); // 绘制封闭的线
+    // gl.drawArrays(gl.TRIANGLE_STRIP, 0, 3)
   }
   componentDidMount() {
     this.initWebGl([
