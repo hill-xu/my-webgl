@@ -26,7 +26,6 @@ export default class Poly {
         this.updateBuffer();
         // 获取索引
         const a_Position = gl.getAttribLocation(gl.program, attrName);
-        console.log(a_Position);
         gl.vertexAttribPointer(a_Position, size, gl.FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(a_Position)
     }

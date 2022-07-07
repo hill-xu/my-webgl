@@ -29,7 +29,10 @@ class MyLayout extends React.Component {
               <Link to="/demo3">绘制点、线、面</Link>
             </Menu.Item>
             <Menu.Item key="4">
-              <Link to="/demo4">跟着鼠标画</Link>
+              <Link to="/demo4">画单线</Link>
+            </Menu.Item>
+            <Menu.Item key="5">
+              <Link to="/demo5">画多线</Link>
             </Menu.Item>
           </Menu>
         </Sider>
