@@ -11,6 +11,7 @@ import Demo2 from '../pages/demo2';
 import Demo3 from '../pages/demo3';
 import Demo4 from '../pages/demo4';
 import Demo5 from '../pages/demo5';
+import Demo6 from '../pages/demo6';
 function routerConfig() {
   return <Router>
     <Switch>
@@ -22,6 +23,7 @@ function routerConfig() {
             <Route path="/demo3" component={Demo3}></Route>
             <Route path="/demo4" component={Demo4}></Route>
             <Route path="/demo5" component={Demo5}></Route>
+            <Route path="/demo6" component={Demo6}></Route>
             <Redirect to="/demo1"></Redirect>
           </Switch>
         </MyLayout>

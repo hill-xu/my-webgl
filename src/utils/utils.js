@@ -9,7 +9,7 @@ function getMousePosInWebgl({ clientX, clientY }, canvas){
     cssY - halfHeight,
   ];
   // 解决y 方向的差异
-  const yBaseCenterTop = -yBaseCenter;
+  const yBaseCenterTop = - yBaseCenter;
   //解决坐标基底的差异
   return {
     x: xBaseCenter / halfWidth,
@@ -17,4 +17,12 @@ function getMousePosInWebgl({ clientX, clientY }, canvas){
   }
 }
 
-export { getMousePosInWebgl }
+function glToCssPos({x, y}, { width, height }) {
+  const [halfWidth, halfHeight] = [width / 2, height / 2];
+  return {
+    x: x * halfWidth,
+    y: - y * halfHeight
+  }
+}
+
+export { getMousePosInWebgl, glToCssPos }

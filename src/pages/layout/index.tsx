@@ -34,6 +34,9 @@ class MyLayout extends React.Component {
             <Menu.Item key="5">
               <Link to="/demo5">画多线</Link>
             </Menu.Item>
+            <Menu.Item key="6">
+              <Link to="/demo6">狮子座</Link>
+            </Menu.Item>
           </Menu>
         </Sider>
         <Layout className="site-layout">

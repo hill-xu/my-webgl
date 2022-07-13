@@ -1,4 +1,4 @@
-import React, { HtmlHTMLAttributes } from "react";
+import React from "react";
 import { Color } from 'three'
 import { initShaders } from '../../utils/shader';
 import { Compose } from '../../utils/Compose';

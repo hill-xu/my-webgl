@@ -6,6 +6,8 @@ const defaultAttr = () => ({
     attrName: 'a_position',
     types: ['POINTS'],
     count: 0,
+    circleDot: false,
+    u_IsPOINTS: null
 })
 
 export default class Poly {
@@ -14,7 +16,7 @@ export default class Poly {
         this.init()
     }
     init() {
-        const { gl, attrName, size } = this;
+        const { gl, attrName, size, circleDot } = this;
         if (!gl) {
             return
         }
@@ -28,6 +30,9 @@ export default class Poly {
         const a_Position = gl.getAttribLocation(gl.program, attrName);
         gl.vertexAttribPointer(a_Position, size, gl.FLOAT, false, 0, 0);
         gl.enableVertexAttribArray(a_Position)
+        if (circleDot) {
+            this.u_IsPOINTS = gl.getUniformLocation(gl.program, 'u_IsPOINTS')
+        }
     }
     updateBuffer() {
         const { gl, vertices } = this;
@@ -68,8 +73,9 @@ export default class Poly {
         this.vertices = vertices;
     }
     draw(types = this.types) {
-        const { gl, count } = this;
+        const { gl, count, circleDot, u_IsPOINTS } = this;
         types.forEach(type => {
+            circleDot && gl.uniform1f(u_IsPOINTS, type === 'POINTS')
             gl.drawArrays(gl[type], 0, count)
         })
     }
