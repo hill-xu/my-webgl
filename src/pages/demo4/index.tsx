@@ -74,6 +74,8 @@ class Demo4 extends React.Component {
     this.initWebGl([
       this.initCanvasClick
     ])
+    console.log(111);
+    
   }
   render() {
     return <canvas className="canvas" id="canvas"></canvas>
